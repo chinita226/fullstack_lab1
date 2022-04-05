@@ -1,26 +1,4 @@
-/* 
-fetch("/api/users")
-    // Converting received data to JSON
-    .then(response => response.json())
-    .then(json => {
-  
-        // Create a variable to store HTML
-        let li = `<div><tr><th>Name</th><th>Age</th><th>Email</th></tr></div>`;
 
-        // Loop through each data and add a table row
-        json.forEach(user => {
-            li += `<div><tr>
-                <td>${user.firstName} </td>
-                <td>${user.age} </td>
-                <td>${user.email}</td>
-            </tr></div>`;
-        });
-  
-    // Display result
-    document.getElementById("users").innerHTML = li;
-
-});
-*/
 let getUserBtn = document.querySelector("#getUsers")
 let createUserBtn = document.querySelector("#createNew")
 
