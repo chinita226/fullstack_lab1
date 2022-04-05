@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetching API</title>
+    <style>
+      .inner-app {
+        background-color: rgb(227, 222, 222);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+    
+      }
+      #createNew {
+        margin-top: 1rem;
+      }
+    </style>
+</head>
+<body>
+  <h1>You are populating API data in HTML</h1>
+  <h2>Get all users</h2>
+  <button id="getUsers">Get all users</button>
+  <h3>(the button above is used to refresh user data from api. Use it after delete and create.)</h3>
+  <h2>Create a new user</h2>
+  <form id="createUser">
+    <input type="text" id="new-name" value="first name">
+    <input type="text" id="new-age" value="age">
+    <input type="email" id="new-email" value="email">
+    <button id="createNew">Create a new users</button>
+  </form>
+  <h3>(the button above is used to create a new user)</h3>
+  <div id="app">
+  </div>
+  <script src="./app.js"></script>
+    
+</body>
+</html>
