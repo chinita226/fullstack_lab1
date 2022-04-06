@@ -23,14 +23,32 @@
   <h2>Get all users</h2>
   <button id="getUsers">Get all users</button>
   <h3>(the button above is used to refresh user data from api. Use it after delete and create.)</h3>
+  <h2>Update a user by ID</h2>
+  <div class="inner-app">
+    <button id="updateUser">Update a user</button>
+    <p>ID</p>
+    <input type="text" id="user-id">
+    <p>Name</p>
+    <input type="text" id="update-name">
+    <p>Age</p>
+    <input type="text" id="update-age">
+    <p>Email</p>
+    <input type="email" id="update-email">
+  </div>
   <h2>Create a new user</h2>
-  <form id="createUser">
-    <input type="text" id="new-name" value="first name">
-    <input type="text" id="new-age" value="age">
-    <input type="email" id="new-email" value="email">
-    <button id="createNew">Create a new users</button>
-  </form>
-  <h3>(the button above is used to create a new user)</h3>
+  <div class="inner-app">
+    <form id="createUser">
+      <p>First name</p>
+      <input type="text" id="new-name">
+      <p>Age</p>
+      <input type="text" id="new-age">
+      <p>Email</p>
+      <input type="email" id="new-email">
+      <button id="createNew">Create a new users</button>
+    </form>
+    <h3>(the button above is used to create a new user)</h3>
+  </div>
+
   <div id="app">
   </div>
   <script src="./app.js"></script>

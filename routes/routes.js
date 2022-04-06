@@ -63,15 +63,21 @@ router.delete('/users/:id', getUsers, async (req, res) => {
 
 // update using put
 router.put('/users/:id', getUsers, async (req, res) => {
-    res.users.firstName = req.body.firstName
-    res.users.age = req.body.age
-    res.users.email = req.body.email
-    try{
-        const updateUser = await res.users.save()
-        res.json(updateUser)
-    } catch(err){
-        res.json.status(400).json({ message: err.message})
+     
+    if(res.users.email == req.body.email){
+        return res.status(409).json({ error: 'User already exists!'});
+    } else {
+        res.users.firstName = req.body.firstName
+        res.users.age = req.body.age
+        res.users.email = req.body.email
+        try{
+            const updateUser = await res.users.save()
+            res.json(updateUser)
+        } catch(err){
+            res.json({ message: err.message})
+        }
     }
+ 
 })
 
 

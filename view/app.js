@@ -50,19 +50,12 @@ function fetchAPI() {
             <p>User's age: ${values.age}</p>
             <p>User's email: ${values.email}</p>
             <p>User's id: ${values._id}</p>
-            <input type="text" id="update-name" value="update first name">
-            <input type="text" id="update-age" value="update age">
-            <input type="email" id="update-email" value="update email">
             <button data-delete="${values._id}">Delete User</button>
-            <button data-update="${values._id}">Update User</button>
             <p>(click "get all users" button to refresh updated information)</p>
             </div>
             `
         });
         document.getElementById("app").innerHTML=dataArray;
-        const updateName = document.querySelector('#update-name');
-        const updateAge = document.querySelector('#update-age');
-        const updateEmail = document.querySelector('#update-email');
         // delete user by ID
         document.querySelectorAll('[data-delete]').forEach( btn => {
             btn.addEventListener('click', e => {
@@ -74,31 +67,42 @@ function fetchAPI() {
                 .then( data => console.log(data))
             })
         })
-        document.querySelectorAll('[data-update]').forEach( btn => {
-            btn.addEventListener('click', e => {
-                e.preventDefault()
-                const updateUser = {
-                    firstName: updateName.value,
-                    age: updateAge.value,
-                    email: updateEmail.value
-                };
-                fetch(`/api/users/${e.target.dataset.update}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(updateUser)
-                })
-                .then( raw=> raw.json())
-                .then( data => console.log(data))
-            })
-        })
+ 
         }).catch((err) =>{
             console.log(err);
         })
     
 }
+// get all fields
+const userID=document.querySelector('#user-id')
+const updateName = document.querySelector('#update-name');
+const updateAge = document.querySelector('#update-age');
+const updateEmail = document.querySelector('#update-email');
 
+const updateBTN = document.querySelector('#updateUser')
+
+updateBTN.addEventListener('click', e => {
+    console.log("here..")
+    console.log(userID.value);
+    e.preventDefault()
+    const updateUser = {
+        firstName: updateName.value,
+        age: updateAge.value,
+        email: updateEmail.value
+    };
+    fetch(`/api/users/${userID.value}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(updateUser)
+    })
+    .then( raw=> raw.json())
+    .then( data => console.log(data))
+    .catch((err) =>{
+        console.log(err);
+    })
+})
 
 
 fetchAPI()
